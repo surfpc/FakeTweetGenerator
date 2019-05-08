@@ -16,6 +16,9 @@ consumerKey = "#"
 consumerSecret = "#"
 accessToken = "#-#"
 accessSecret = "#"
+
+def test():
+    print('test')
  
  
 # markovText :: Dict -> [String] -> ([String] -> Bool) -> IO [String]
@@ -51,11 +54,11 @@ def markovRules(n):
  
 # TEST ----------------------------------------------------
 # main :: IO ()
-def main():
-    '''Text generation test.'''
+def tweet(user_id):
+    '''Text generation.'''
     
     #This id changes who the markov chain is impersonating
-    twitterId = 25073877 #trump
+    twitterId = user_id
     
     #used to determine if the program needs to use tweepy to get the tweets from
     #twitter or if they have already been analyzed
@@ -82,8 +85,8 @@ def main():
         readFile(getcwd() + '/' + 'people/' + str(twitterId) + '_tweets.txt').split()
     )
     #print(__doc__ + ':\n')
-    print(
-        fill(
+    
+    return fill(
             ' '.join(
                 markovText(dctNGrams)(
                     anyNGramWithInitialCap(dctNGrams)
@@ -91,7 +94,17 @@ def main():
             ),
             width=75 #75
         )
-    )
+    
+    #print(
+#        fill(
+#            ' '.join(
+#                markovText(dctNGrams)(
+#                    anyNGramWithInitialCap(dctNGrams)
+#                )(sentenceEndAfterMinWords(30)) #200
+#            ),
+#            width=75 #75
+#        )
+#    )
  
  
 # HELPER FUNCTIONS ----------------------------------------
@@ -160,5 +173,3 @@ def zipWithN(f):
     )
  
  
-if __name__ == '__main__':
-    main()
