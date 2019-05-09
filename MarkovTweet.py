@@ -11,11 +11,6 @@ from textwrap import (fill)
 
 import twitterPeople as tp
 import jsonHelper as jh
-
-#consumerKey = "#"
-#consumerSecret = "#"
-#accessToken = "#-#"
-#accessSecret = "#"
  
 class MarkovTweet: 
     

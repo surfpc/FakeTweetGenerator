@@ -3,32 +3,19 @@
 import json
 import tweepy
 
-#consumerKey = "#"
-#consumerSecret = "#"
-#accessToken = "#-#"
-#accessSecret = "#"
-
-#creating the authentication object
-#auth = tweepy.OAuthHandler(consumerKey, consumerSecret)
-
-#setting your access token and secret
-#auth.set_access_token(accessToken, accessSecret)
-
-#creating the API object while passing in auth information
-#api = tweepy.API(auth)
-
 
 language = "en"
-#results = api.search(q=query, lang=language, rpp=100) #get most recent tweets
 
-#results = [] #api.user_timeline(user_id=25073877, count=1000)
+# Some sample id's 
+#trump_id = 25073877
+#elon_id = 44196397
+#buzzfeed_id = 5695632
+#showerthoughts_id = 487736815
 
-trump_name = 25073877
-elon_name = 44196397
-buzz_name = 5695632
-shower_name = 487736815
+
 tweetCount = 1000
 
+# gets roughly 1000 tweets from the user associated with the given ID
 def getTweets(id_num, consumerKey, consumerSecret, accessToken, accessSecret):
     #creating the authentication object
     auth = tweepy.OAuthHandler(consumerKey, consumerSecret)
@@ -47,8 +34,7 @@ def getTweets(id_num, consumerKey, consumerSecret, accessToken, accessSecret):
                     'text': tweet.full_text.split(sep, 1)[0]
                 })
         
+    #dumps all the data into a JSON file
     with open('json/' + str(id_num) + '_tweets.json', 'w+') as f:
         json.dump(result, f)
 
-#for tweet in results:
-#    print(tweet.text)
