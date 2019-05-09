@@ -29,6 +29,12 @@ class MarkovTweet:
         self.consumerSecret = consumerSecret
         self.accessToken = accessToken
         self.accessSecret = accessSecret
+        
+    def updateValues(self, consumerKey, consumerSecret, accessToken, accessSecret):
+        self.consumerKey = consumerKey
+        self.consumerSecret = consumerSecret
+        self.accessToken = accessToken
+        self.accessSecret = accessSecret
     
     # markovText :: Dict -> [String] -> ([String] -> Bool) -> IO [String]
     def markovText(self, dct):
